@@ -69,12 +69,6 @@ export function Navbar() {
           </Link>
 
           <div className={styles.navMiddle}>
-            <Link href="/buy" className={styles.link}>
-              Buy
-            </Link>
-            <Link href="/sell" className={styles.link}>
-              Sell
-            </Link>
 
             {/* Search bar in the middle */}
             <div className={styles.searchContainer}>

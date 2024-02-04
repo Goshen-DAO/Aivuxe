@@ -8,16 +8,18 @@ import { NFT } from "@thirdweb-dev/sdk";
 import React from "react";
 import {
   MARKETPLACE_ADDRESS,
-  NFT_COLLECTION_ADDRESS,
 } from "../../const/contractAddresses";
 import Skeleton from "../Skeleton/Skeleton";
 import styles from "./NFT.module.css";
+import { useRouter } from "next/router";
 
 type Props = {
   nft: NFT;
 };
 
 export default function NFTComponent({ nft }: Props) {
+  const router = useRouter();
+  const contractAddress = router.query.contractAddress as string; // Updated
   const { contract: marketplace, isLoading: loadingContract } = useContract(
     MARKETPLACE_ADDRESS,
     "marketplace-v3"
@@ -26,14 +28,14 @@ export default function NFTComponent({ nft }: Props) {
   // 1. Load if the NFT is for direct listing
   const { data: directListing, isLoading: loadingDirect } =
     useValidDirectListings(marketplace, {
-      tokenContract: NFT_COLLECTION_ADDRESS,
+      tokenContract: contractAddress,
       tokenId: nft.metadata.id,
     });
 
   // 2. Load if the NFT is for auction
   const { data: auctionListing, isLoading: loadingAuction } =
     useValidEnglishAuctions(marketplace, {
-      tokenContract: NFT_COLLECTION_ADDRESS,
+      tokenContract: contractAddress,
       tokenId: nft.metadata.id,
     });
 

@@ -12,7 +12,6 @@ import {
 } from "@thirdweb-dev/react";
 import {
   MARKETPLACE_ADDRESS,
-  NFT_COLLECTION_ADDRESS,
 } from "../../const/contractAddresses";
 import { useRouter } from "next/router";
 import toast, { Toaster } from "react-hot-toast";
@@ -41,6 +40,7 @@ type DirectFormData = {
 
 export default function SaleInfo({ nft }: Props) {
   const router = useRouter();
+  const contractAddress = router.query.contractAddress as string; // Updated
   // Connect to marketplace contract
   const { contract: marketplace } = useContract(
     MARKETPLACE_ADDRESS,
@@ -50,7 +50,7 @@ export default function SaleInfo({ nft }: Props) {
   // useContract is a React hook that returns an object with the contract key.
   // The value of the contract key is an instance of an NFT_COLLECTION on the blockchain.
   // This instance is created from the contract address (NFT_COLLECTION_ADDRESS)
-  const { contract: nftCollection } = useContract(NFT_COLLECTION_ADDRESS);
+  const { contract: nftCollection } = useContract(contractAddress);
 
   // Hook provides an async function to create a new auction listing
   const { mutateAsync: createAuctionListing } =
@@ -67,7 +67,7 @@ export default function SaleInfo({ nft }: Props) {
   const { register: registerAuction, handleSubmit: handleSubmitAuction } =
     useForm<AuctionFormData>({
       defaultValues: {
-        nftContractAddress: NFT_COLLECTION_ADDRESS,
+        nftContractAddress: contractAddress,
         tokenId: nft.metadata.id,
         startDate: new Date(),
         endDate: new Date(),
@@ -107,7 +107,7 @@ export default function SaleInfo({ nft }: Props) {
   const { register: registerDirect, handleSubmit: handleSubmitDirect } =
     useForm<DirectFormData>({
       defaultValues: {
-        nftContractAddress: NFT_COLLECTION_ADDRESS,
+        nftContractAddress: contractAddress,
         tokenId: nft.metadata.id,
         startDate: new Date(),
         endDate: new Date(),
@@ -221,7 +221,7 @@ export default function SaleInfo({ nft }: Props) {
                 position: "bottom-center",
               });
               router.push(
-                `/token/${NFT_COLLECTION_ADDRESS}/${nft.metadata.id}`
+                `/projects/${contractAddress}/${nft.metadata.id}`
               );
             }}
           >
@@ -296,7 +296,7 @@ export default function SaleInfo({ nft }: Props) {
                 position: "bottom-center",
               });
               router.push(
-                `/token/${NFT_COLLECTION_ADDRESS}/${nft.metadata.id}`
+                `/projects/${contractAddress}/${nft.metadata.id}`
               );
             }}
           >
