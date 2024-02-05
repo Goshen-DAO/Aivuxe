@@ -4,13 +4,10 @@
   align-items: center;
   justify-content: center;
   position: fixed;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   z-index: 3;
   background-color: transparent !important;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
 }
 
 .nav {
@@ -25,7 +22,49 @@
   max-width: 1260px;
   background-color: transparent !important;
 }
+/* Mobile-first approach, styles for screens less than 720px */
+@media (max-width: 720px) {
+  .navLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
 
+  .navMiddle {
+    margin-top: 12px;
+    text-align: center;
+  }
+
+  .searchInput {
+    width: 100%;
+  }
+
+  .searchButton {
+    margin-top: 10px;
+  }
+
+  .resultsDropdown {
+    width: 100%;
+  }
+}
+
+/* Styles for screens less than 500px */
+@media (max-width: 500px) {
+  .navConnect {
+    display: none !important;
+  }
+
+  .navRight {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .homeLink {
+    font-size: 20px;
+  }
+}
 .navLeft {
   display: flex;
   flex-direction: row;
@@ -92,4 +131,55 @@
   .navConnect {
     display: none !important;
   }
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+}
+
+.searchInput {
+  padding: 15px;
+  margin-right: 5px;
+  border: 1px solid #ffffff;
+  border-radius: 7px;
+  font-size: 14px;
+  width: 300px;
+}
+
+.searchButton {
+  padding: 15px 32px;
+  background-color: #000001;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.resultsDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.resultItem {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.resultImage {
+  margin-right: 8px;
+  border-radius: 50%;
+}
+
+.resultName {
+  margin: 0;
 }

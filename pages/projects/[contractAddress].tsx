@@ -6,19 +6,18 @@ import NFTGrid from "../../components/NFT/NFTGrid";
 import SellModal from "../../components/SellModal/SellModal";
 import { useRouter } from "next/router";
 import {
-  Box,
   Flex,
   Heading,
-  SimpleGrid,
-  Spinner,
-  Text,
-  Button,
   Tabs,
   TabList,
   TabPanels,
   Tab,
   TabPanel,
+  Link,
+  Button
 } from "@chakra-ui/react";
+
+import { Navbar } from "../../components/Navbar/Navbar";
 
 export default function ProjectPage() {
   const router = useRouter();
@@ -38,6 +37,11 @@ export default function ProjectPage() {
 
   return (
     <Container maxWidth="lg">
+        <Navbar />
+        <br/>
+        <Link href="/getstarted">
+            <Button mb={4}>Back</Button>
+          </Link>
       <br></br>
       <br></br>
       <br></br>

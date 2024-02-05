@@ -10,8 +10,8 @@ import {
 } from "../../const/contractAddresses";
 
 export function Navbar() {
-  const address = useAddress();
   const router = useRouter();
+  const address = useAddress();
   
   // State to manage the input value
   const [searchInput, setSearchInput] = useState<string>("");
@@ -56,6 +56,7 @@ export function Navbar() {
   };
 
   return (
+    address && 
     <div className={styles.navContainer}>
       <nav className={styles.nav}>
         <div className={styles.navLeft}>
@@ -72,53 +73,44 @@ export function Navbar() {
 
             {/* Search bar in the middle */}
             <div className={styles.searchContainer}>
-              <input
-                type="text"
-                placeholder="Enter Contract Address"
-                value={searchInput}
-                onChange={(e) => setSearchInput(e.target.value)}
-              />
-              <button onClick={handleSearch}>Search</button>
+  <input
+    className={styles.searchInput}
+    type="text"
+    placeholder="Enter Contract Address"
+    value={searchInput}
+    onChange={(e) => setSearchInput(e.target.value)}
+  />
+  <button className={styles.searchButton} onClick={handleSearch}>Search</button>
 
-              {/* Display search results dropdown */}
-              {searchResults.length > 0 && (
-                <div className={styles.resultsDropdown}>
-                  {searchResults.map((result) => (
-                    <div
-                      key={result.address}
-                      className={styles.resultItem}
-                      onClick={() => handleResultClick(result.address)}
-                    >
-                      <Image
-                        src={result.image || "/default-image.png"}
-                        width={32}
-                        height={32}
-                        alt="Contract Image"
-                      />
-                      <p>{result.name}</p>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
+  {/* Display search results dropdown */}
+  {searchResults.length > 0 && (
+    <div className={styles.resultsDropdown}>
+      {searchResults.map((result) => (
+        <div
+          key={result.address}
+          className={styles.resultItem}
+          onClick={() => handleResultClick(result.address)}
+        >
+          <Image
+            className={styles.resultImage}
+            src={result.image || "/default-image.png"}
+            width={32}
+            height={32}
+            alt="Contract Image"
+          />
+          <p className={styles.resultName}>{result.name}</p>
+        </div>
+      ))}
+    </div>
+  )}
+</div>
           </div>
         </div>
 
         <div className={styles.navRight}>
           <div className={styles.navConnect}>
-            <ConnectWallet theme="dark" btnTitle="Connect Wallet" />
+            <ConnectWallet theme="dark" btnTitle="Login" />
           </div>
-          {address && (
-            <Link className={styles.link} href={`/profile/${address}`}>
-              <Image
-                className={styles.profileImage}
-                src="/user-icon.png"
-                width={42}
-                height={42}
-                alt="Profile"
-              />
-            </Link>
-          )}
         </div>
       </nav>
     </div>

@@ -25,6 +25,7 @@ import Skeleton from "../../../components/Skeleton/Skeleton";
 import toast, { Toaster } from "react-hot-toast";
 import toastStyle from "../../../util/toastConfig";
 import { useRouter } from "next/router";
+import { Navbar } from "../../../components/Navbar/Navbar";
 
 type Props = {
   nft: NFT;
@@ -126,6 +127,7 @@ export default function TokenPage({ nft, contractMetadata }: Props) {
 
   return (
     <>
+    <Navbar />
       <Toaster position="bottom-center" reverseOrder={false} />
       <Container maxWidth="lg">
         <div className={styles.container}>

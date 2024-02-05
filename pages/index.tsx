@@ -25,46 +25,26 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div className={styles.heroAssetFrame}>
-            <Image
-              src="/hero-asset.png"
-              width={860}
-              height={540}
-              alt="Hero asset, NFT marketplace"
-              quality={100}
-              className={styles.heroAsset}
-            />
+            
           </div>
+          <br />
+          <br />
+          <br />
           <div className={styles.heroBodyContainer}>
             <div className={styles.heroBody}>
               <h1 className={styles.heroTitle}>
                 <span className={styles.heroTitleGradient}>
-                  Build NFT Marketplaces
+                  Aivuxe <br />A Permissionless NFT Marketplace
                 </span>
                 <br />
-                faster than ever.
-              </h1>
-              <p className={styles.heroSubtitle}>
-                <Link
-                  className={styles.link}
-                  href="https://thirdweb.com"
-                  target="_blank"
-                >
-                  thirdweb
-                </Link>{" "}
-                gives you the tools you need to create audited, performant, and
-                flexible NFT marketplaces in <b>hours</b>, <i>not months</i>.
-              </p>
+                </h1>
+                <h2>
+                Don't be bound by the platform, be free.
+                </h2>
 
               <div className={styles.heroCtaContainer}>
-                <Link className={styles.heroCta} href="/buy">
+                <Link className={styles.heroCta} href="/getstarted">
                   Get Started
-                </Link>
-                <Link
-                  className={styles.secondaryCta}
-                  href="https://github.com/thirdweb-example/marketplace-v3"
-                  target="_blank"
-                >
-                  GitHub
                 </Link>
               </div>
             </div>
