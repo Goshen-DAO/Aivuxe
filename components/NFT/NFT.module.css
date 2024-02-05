@@ -1,9 +1,9 @@
 .nftImage {
   /* Override default NFT renderer width */
-  width: 70% !important;
-  height: 100px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.04);
+  width: 50% !important;
+  height: 70px;
+  border-radius: 5px;
+  background: rgba(91, 92, 91, 0.04);
   object-fit: cover;
   margin-left: auto;
   margin-right: auto;

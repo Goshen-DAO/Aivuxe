@@ -4,13 +4,11 @@ import React from "react";
 import Container from "../../components/Container/Container";
 import NFTGrid from "../../components/NFT/NFTGrid";
 import { useRouter } from "next/router";
-import { getNFTCollectionAddress } from "../../const/contractAddresses"; // Import the updated function
 
 export default function ProjectPage() {
   const router = useRouter();
   const contractAddress = router.query.contractAddress as string; // Updated
 
-  const nftCollectionAddress = getNFTCollectionAddress(); // Use the dynamic NFT collection address
   const { contract } = useContract(contractAddress);
   const { data, isLoading } = useNFTs(contract);
 
