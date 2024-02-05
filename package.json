@@ -1,6 +1,6 @@
 {
   "name": "aivuxe",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,11 +11,15 @@
     "deploy": "next build && next export && npx thirdweb@latest upload out"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
     "@thirdweb-dev/chains": "^0",
     "@thirdweb-dev/react": "^4.4.5",
     "@thirdweb-dev/sdk": "^4.0.33",
     "@thirdweb-dev/wallets": "^2.4.8",
     "ethers": "^5",
+    "framer-motion": "^11.0.3",
     "next": "^13",
     "nextjs-progressbar": "^0.0.16",
     "react": "^18.2",

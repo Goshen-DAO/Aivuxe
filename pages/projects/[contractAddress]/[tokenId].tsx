@@ -8,6 +8,7 @@ import {
   Web3Button,
   detectContractFeature
 } from "@thirdweb-dev/react";
+import { Grid, GridItem, Box, Text } from '@chakra-ui/react';
 import React, { useState } from "react";
 import Container from "../../../components/Container/Container";
 import { GetStaticProps, GetStaticPaths } from "next";
@@ -140,17 +141,23 @@ export default function TokenPage({ nft, contractMetadata }: Props) {
 
               <h3 className={styles.descriptionTitle}>Traits</h3>
 
-              <div className={styles.traitsContainer}>
-              {Array.isArray(nft?.metadata?.attributes) &&
-  nft.metadata.attributes.map((trait: any, index: number) => (
-    <div className={styles.traitContainer} key={index}>
-      <p className={styles.traitName}>{trait.trait_type}</p>
-      <p className={styles.traitValue}>
-        {trait.value?.toString() || ""}
-      </p>
-    </div>
-  ))}
-              </div>
+              <Grid
+  templateColumns="repeat(2, 1fr)"
+  gap={4}
+  className={styles.traitsContainer}
+>
+  {Array.isArray(nft?.metadata?.attributes) &&
+    nft.metadata.attributes.map((trait: any, index: number) => (
+      <GridItem key={index} className={styles.traitContainer}>
+        <Box>
+          <Text className={styles.traitName}>{trait.trait_type}</Text>
+          <Text className={styles.traitValue}>
+            {trait.value?.toString() || ""}
+          </Text>
+        </Box>
+      </GridItem>
+    ))}
+</Grid>
 
               <h3 className={styles.descriptionTitle}>History</h3>
 
@@ -217,7 +224,7 @@ export default function TokenPage({ nft, contractMetadata }: Props) {
             <p className={styles.collectionName}>Token ID #{nft.metadata.id}</p>
 
             <Link
-              href={`/profile/${nft.owner}`}
+              href={`https://explorer.zetachain.com/address/${nft.owner}`}
               className={styles.nftOwnerContainer}
             >
               {/* Random linear gradient circle shape */}
@@ -269,7 +276,7 @@ export default function TokenPage({ nft, contractMetadata }: Props) {
                       {auctionListing && auctionListing[0] && (
                         <>
                           <p className={styles.label} style={{ marginTop: 12 }}>
-                            Bids starting from
+                            Bids Starting From
                           </p>
 
                           <div className={styles.pricingValue}>
@@ -297,21 +304,21 @@ export default function TokenPage({ nft, contractMetadata }: Props) {
                   action={async () => await buyListing()}
                   className={styles.btn}
                   onSuccess={() => {
-                    toast(`Purchase success!`, {
+                    toast(`Purchase Success!`, {
                       icon: "✅",
                       style: toastStyle,
                       position: "bottom-center",
                     });
                   }}
                   onError={(e) => {
-                    toast(`Purchase failed! Reason: ${e.message}`, {
+                    toast(`Purchase Failed! Reason: ${e.message}`, {
                       icon: "❌",
                       style: toastStyle,
                       position: "bottom-center",
                     });
                   }}
                 >
-                  Buy at asking price
+                  Buy at Asking Price
                 </Web3Button>
 
                 <div className={`${styles.listingTimeContainer} ${styles.or}`}>
@@ -319,24 +326,23 @@ export default function TokenPage({ nft, contractMetadata }: Props) {
                 </div>
 
                 <input
-                  className={styles.input}
-                  defaultValue={
-                    auctionListing?.[0]?.minimumBidCurrencyValue
-                      ?.displayValue || 0
-                  }
-                  type="number"
-                  step={0.000001}
-                  onChange={(e) => {
-                    setBidValue(e.target.value);
-                  }}
-                />
+  className={styles.input}
+  defaultValue={
+    auctionListing?.[0]?.minimumBidCurrencyValue?.displayValue || 0
+  }
+  type="number"
+  step={0.000001}
+  onChange={(e) => {
+    setBidValue(e.target.value);
+  }}
+/>
 
                 <Web3Button
                   contractAddress={MARKETPLACE_ADDRESS}
                   action={async () => await createBidOrOffer()}
                   className={styles.btn}
                   onSuccess={() => {
-                    toast(`Bid success!`, {
+                    toast(`Bid Success!`, {
                       icon: "✅",
                       style: toastStyle,
                       position: "bottom-center",
@@ -344,14 +350,14 @@ export default function TokenPage({ nft, contractMetadata }: Props) {
                   }}
                   onError={(e) => {
                     console.log(e);
-                    toast(`Bid failed! Reason: ${e.message}`, {
+                    toast(`Bid Failed! Reason: ${e.message}`, {
                       icon: "❌",
                       style: toastStyle,
                       position: "bottom-center",
                     });
                   }}
                 >
-                  Place bid
+                  Place Bid
                 </Web3Button>
               </>
             )}
