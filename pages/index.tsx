@@ -10,7 +10,7 @@ import {
 import { useAddress } from "@thirdweb-dev/react";
 import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
-import Seo from "../components/Seo";
+
 
 const Home: React.FC = () => {
   const address = useAddress();
@@ -29,7 +29,6 @@ const Home: React.FC = () => {
       minH="100vh"
       width="100%"
     >
-      <Seo templateTitle="Home" />
       {!address ? (
         <Container maxW="100%">
           <Flex
