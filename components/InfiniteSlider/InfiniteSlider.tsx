@@ -2,13 +2,15 @@
 
 import React, { useRef, useEffect } from 'react';
 import { Box, Link } from '@chakra-ui/react';
-import Slider from 'react-slick';
+import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from './InfiniteSlider.module.css';
 
+type SliderSettings = Settings;
+
 const InfiniteSlider: React.FC = () => {
-  const sliderRef = useRef<Slider>(null);
+  const sliderRef = useRef<Slider | null>(null);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -20,7 +22,7 @@ const InfiniteSlider: React.FC = () => {
     return () => clearInterval(intervalId);
   }, []);
 
-  const settings = {
+  const settings: SliderSettings = {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
