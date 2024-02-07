@@ -21,7 +21,7 @@ import {
 
 const ProjectPage=()=>{
   const router = useRouter();
-  const contractAddress = router.query.contractAddress as string; // Updated
+  const { contractAddress }: any = router.query;
 
   const { contract } = useContract(contractAddress);
   const { data, isLoading,} = useNFTs(

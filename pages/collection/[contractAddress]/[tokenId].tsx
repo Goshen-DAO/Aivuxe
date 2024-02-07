@@ -6,7 +6,8 @@ import {
   useValidDirectListings,
   useValidEnglishAuctions,
   detectContractFeature,
-  useNFTs
+  useNFTs,
+  Web3Button
 } from "@thirdweb-dev/react";
 import dynamic from 'next/dynamic';
 import { Grid, GridItem, Box, Text, Flex } from '@chakra-ui/react';
@@ -42,7 +43,6 @@ const TokenPage=({ nft, contractMetadata }: Props)=>{
   const { contractAddress }: any = router.query;
 
   const { contract } = useContract(contractAddress);
-  const Web3Button = dynamic(() => import('@thirdweb-dev/react').then((module) => module.Web3Button), { ssr: false });
 
   const { data, isLoading,} = useNFTs(
     contract,

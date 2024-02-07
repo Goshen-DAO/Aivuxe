@@ -1,7 +1,7 @@
 // CollectionInformation/CollectionInformation.tsx
 
 import { FC } from 'react';
-import { ThirdwebNftMedia, useContract, useNFT, useContractRead } from '@thirdweb-dev/react';
+import { ThirdwebNftMedia, useContract, useNFT } from '@thirdweb-dev/react';
 
 interface CollectionInformationProps {
   contractAddress: string;
