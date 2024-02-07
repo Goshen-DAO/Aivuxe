@@ -10,13 +10,7 @@ import {
 import { useAddress } from "@thirdweb-dev/react";
 import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
-
-import type { Metadata } from 'next'
- 
-export const metadata: Metadata = {
-  title: 'Aivuxe NFT Marketplace',
-  description: 'an Open Source Permissionless NFT Marketplace using thirdweb infrastructure to build production grade DAPPS.',
-}
+import Seo from "../components/Seo";
 
 const Home: React.FC = () => {
   const address = useAddress();
@@ -28,15 +22,14 @@ const Home: React.FC = () => {
     router.push("/getstarted");
   };
 
-  
-
   return (
     <Container
       maxW="100%"
       bgGradient="linear-gradient(to left, #0e1c26, #2a454b, #294861)"
-minH="100vh"
-width="100%"
+      minH="100vh"
+      width="100%"
     >
+      <Seo templateTitle="Home" />
       {!address ? (
         <Container maxW="100%">
           <Flex
@@ -53,11 +46,16 @@ width="100%"
               <Box className={styles.heroBodyContainer}>
                 <Box className={styles.heroBody}>
                   <Heading as="h1" className={styles.heroTitle}>
-                  <Text fontSize="4xl" marginTop="200px">
-                      <Text bgGradient='linear-gradient(to right, #8399a2, #eef2f3)'
-  bgClip='text'
-  fontSize='6xl'
-  fontWeight='extrabold'>Aivuxe</Text> <br />A Permissionless NFT Marketplace
+                    <Text fontSize="4xl" marginTop="200px">
+                      <Text
+                        bgGradient="linear-gradient(to right, #8399a2, #eef2f3)"
+                        bgClip="text"
+                        fontSize="6xl"
+                        fontWeight="extrabold"
+                      >
+                        Aivuxe
+                      </Text>{" "}
+                      <br />A Permissionless NFT Marketplace
                     </Text>
                     <br />
                   </Heading>
@@ -125,11 +123,16 @@ width="100%"
               <Box className={styles.heroBodyContainer}>
                 <Box className={styles.heroBody}>
                   <Heading as="h1" className={styles.heroTitle}>
-                  <Text fontSize="4xl" marginTop="200px">
-                      <Text bgGradient='linear-gradient(to right, #8399a2, #eef2f3)'
-  bgClip='text'
-  fontSize='6xl'
-  fontWeight='extrabold'>Aivuxe</Text> <br />A Permissionless NFT Marketplace
+                    <Text fontSize="4xl" marginTop="200px">
+                      <Text
+                        bgGradient="linear-gradient(to right, #8399a2, #eef2f3)"
+                        bgClip="text"
+                        fontSize="6xl"
+                        fontWeight="extrabold"
+                      >
+                        Aivuxe
+                      </Text>{" "}
+                      <br />A Permissionless NFT Marketplace
                     </Text>
                     <br />
                   </Heading>
