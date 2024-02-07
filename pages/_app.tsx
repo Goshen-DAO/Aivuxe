@@ -1,4 +1,5 @@
-import type { AppProps } from "next/app";
+import React from 'react';
+import type { AppProps } from 'next/app';
 import {  ThirdwebProvider,
   metamaskWallet,
   coinbaseWallet,
@@ -8,7 +9,6 @@ import {  ThirdwebProvider,
   trustWallet,
   rainbowWallet,
   safeWallet, } from "@thirdweb-dev/react";
-import NextNProgress from "nextjs-progressbar";
 import "../styles/globals.css";
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 
@@ -30,6 +30,7 @@ const theme = extendTheme({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const AnyComponent = Component as any;
   return (
     <ThirdwebProvider
       activeChain={{
@@ -94,18 +95,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       ]}
     >
       <ChakraProvider theme={theme}>
-      {/* Progress bar when navigating between pages */}
-      <NextNProgress
-        color="var(--color-tertiary)"
-        startPosition={0.3}
-        stopDelayMs={200}
-        height={3}
-        showOnShallow={true}
-      />
-
-      {/* Render the navigation menu above each component */}
-      {/* Render the actual component (page) */}
-      <Component {...pageProps} />
+      <AnyComponent {...pageProps} />
       </ChakraProvider>
     </ThirdwebProvider>
   );

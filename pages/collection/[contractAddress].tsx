@@ -5,7 +5,7 @@ import Container from "../../components/Container/Container";
 import NFTGrid from "../../components/NFT/NFTGrid";
 import SellModal from "../../components/SellModal/SellModal";
 import { useRouter } from "next/router";
-import { Navbar } from "../../components/Navbar/Navbar";
+import  Navbar  from "../../components/Navbar/Navbar";
 import CollectionInformationComponents from "../../components/CollectionInformation/CollectionInformationComponents";
 import {
   Flex,
@@ -19,9 +19,9 @@ import {
 
 
 
-export default function ProjectPage() {
+const ProjectPage=()=>{
   const router = useRouter();
-  const contractAddress = router.query.contractAddress as string; // Updated
+  const { contractAddress }: any = router.query;
 
   const { contract } = useContract(contractAddress);
   const { data, isLoading,} = useNFTs(
@@ -79,3 +79,4 @@ export default function ProjectPage() {
     </>
   );
 }
+export default ProjectPage

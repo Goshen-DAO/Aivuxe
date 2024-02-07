@@ -16,8 +16,7 @@ import { useRouter } from "next/router";
 type Props = {
   nft: NFT;
 };
-
-export default function NFTComponent({ nft }: Props) {
+const NFTComponent=({ nft }: Props)=>{
   const router = useRouter();
   const contractAddress = router.query.contractAddress as string; // Updated
   const { contract: marketplace, isLoading: loadingContract } = useContract(
@@ -81,3 +80,5 @@ export default function NFTComponent({ nft }: Props) {
     </>
   );
 }
+
+export default NFTComponent

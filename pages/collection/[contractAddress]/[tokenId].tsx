@@ -6,7 +6,8 @@ import {
   useValidDirectListings,
   useValidEnglishAuctions,
   detectContractFeature,
-  useNFTs
+  useNFTs,
+  Web3Button
 } from "@thirdweb-dev/react";
 import dynamic from 'next/dynamic';
 import { Grid, GridItem, Box, Text, Flex } from '@chakra-ui/react';
@@ -29,20 +30,19 @@ import toastStyle from "../../../util/toastConfig";
 import { useRouter } from "next/router";
 import { Button} from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { Navbar } from "../../../components/Navbar/Navbar";
+import Navbar  from "../../../components/Navbar/Navbar";
 
 type Props = {
   nft: NFT;
   contractMetadata: any;
 };
 
-export default function TokenPage({ nft, contractMetadata }: Props) {
+const TokenPage=({ nft, contractMetadata }: Props)=>{
   const [bidValue, setBidValue] = useState<string>();
   const router = useRouter();
   const { contractAddress }: any = router.query;
 
   const { contract } = useContract(contractAddress);
-  const Web3Button = dynamic(() => import('@thirdweb-dev/react').then((module) => module.Web3Button), { ssr: false });
 
   const { data, isLoading,} = useNFTs(
     contract,
@@ -514,3 +514,4 @@ if (featureDetected) {
     return { paths: [], fallback: 'blocking' };
   }
 };
+export default TokenPage

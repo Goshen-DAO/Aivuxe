@@ -27,7 +27,7 @@ import { NETWORK } from "../../const/contractAddresses";
 
 interface NavbarProps {}
 
-export const NavbarNoSearch: React.FC<NavbarProps> = () => {
+const NavbarNoSearch: React.FC<NavbarProps> = () => {
   const router = useRouter();
   const address = useAddress();
   const disconnect = useDisconnect();
@@ -161,3 +161,5 @@ export const NavbarNoSearch: React.FC<NavbarProps> = () => {
     </Container>
   );
 };
+
+export default NavbarNoSearch

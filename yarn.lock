@@ -4056,7 +4056,7 @@
 
 "@types/react-slick@^0.23.13":
   version "0.23.13"
-  resolved "https://registry.npmjs.org/@types/react-slick/-/react-slick-0.23.13.tgz"
+  resolved "https://registry.yarnpkg.com/@types/react-slick/-/react-slick-0.23.13.tgz#037434e73a58063047b121e08565f7185d811f36"
   integrity sha512-bNZfDhe/L8t5OQzIyhrRhBr/61pfBcWaYJoq6UDqFtv5LMwfg4NsVDD2J8N01JqdAdxLjOt66OZEp6PX+dGs/A==
   dependencies:
     "@types/react" "*"
@@ -10660,7 +10660,7 @@ react-rx@^2.1.3:
 
 react-slick@^0.30.1:
   version "0.30.1"
-  resolved "https://registry.npmjs.org/react-slick/-/react-slick-0.30.1.tgz"
+  resolved "https://registry.yarnpkg.com/react-slick/-/react-slick-0.30.1.tgz#9584e83282f6b70f26ceeac0a687870c8ca1618e"
   integrity sha512-xtxWBIJH9CvcleAfcZD5A78YtqfHYRMAIkn/AQZFk6Qh/HP/DUtbd3BqHvPKS/Oz0yuINM3YMtw0xLfXvQjeMA==
   dependencies:
     "@testing-library/user-event" "^14.3.0"
