@@ -29,14 +29,14 @@ import toastStyle from "../../../util/toastConfig";
 import { useRouter } from "next/router";
 import { Button} from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { Navbar } from "../../../components/Navbar/Navbar";
+import Navbar  from "../../../components/Navbar/Navbar";
 
 type Props = {
   nft: NFT;
   contractMetadata: any;
 };
 
-export default function TokenPage({ nft, contractMetadata }: Props) {
+const TokenPage=({ nft, contractMetadata }: Props)=>{
   const [bidValue, setBidValue] = useState<string>();
   const router = useRouter();
   const { contractAddress }: any = router.query;
@@ -514,3 +514,4 @@ if (featureDetected) {
     return { paths: [], fallback: 'blocking' };
   }
 };
+export default TokenPage

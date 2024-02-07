@@ -12,7 +12,7 @@ import { NFT as NFTType } from "@thirdweb-dev/sdk";
 import SaleInfo from "../../components/SaleInfo/SaleInfo";
 import { useRouter } from "next/router";
 
-export default function SellModal() {
+const SellModal = ()=> {
   const router = useRouter();
   const contractAddress = router.query.contractAddress as string; // Updated
   // Load all of the NFTs from the NFT Collection
@@ -76,3 +76,5 @@ export default function SellModal() {
     </Container>
   );
 }
+
+export default SellModal

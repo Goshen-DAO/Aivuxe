@@ -28,7 +28,7 @@ import { MdOutlineAccountBalanceWallet } from 'react-icons/md';
 
 interface NavbarProps {}
 
-export const Navbar: React.FC<NavbarProps> = () => {
+const Navbar: React.FC<NavbarProps> = () => {
   const router = useRouter();
   const address = useAddress();
   const disconnect = useDisconnect();
@@ -326,3 +326,5 @@ export const Navbar: React.FC<NavbarProps> = () => {
     </Container>
   );
 };
+
+export default Navbar

@@ -105,7 +105,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
         {/* Render the navigation menu above each component */}
         {/* Render the actual component (page) */}
-        {typeof Component === 'function' ? <Component {...pageProps} /> : null}
+        <Component {...pageProps} /> 
       </ChakraProvider>
     </ThirdwebProvider>
   );

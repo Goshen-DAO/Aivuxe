@@ -38,7 +38,7 @@ type DirectFormData = {
   endDate: Date;
 };
 
-export default function SaleInfo({ nft }: Props) {
+const SaleInfo = ({ nft }: Props)=>{
   const router = useRouter();
   const contractAddress = router.query.contractAddress as string; // Updated
   // Connect to marketplace contract
@@ -309,3 +309,5 @@ export default function SaleInfo({ nft }: Props) {
     </>
   );
 }
+
+export default SaleInfo

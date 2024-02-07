@@ -6,7 +6,7 @@ type Props = {
   height?: string;
 };
 
-export default function Skeleton({ height, width }: Props) {
+const Skeleton = ({ height, width }: Props)=>{
   return (
     <div
       style={{
@@ -18,3 +18,5 @@ export default function Skeleton({ height, width }: Props) {
     />
   );
 }
+
+export default Skeleton

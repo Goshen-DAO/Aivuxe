@@ -13,13 +13,13 @@ type Props = {
   contractAddress: string; // Pass the contract address as a prop
 };
 
-export default function NFTGrid({
+const NFTGrid = ({
   isLoading,
   data,
   overrideOnclickBehavior,
   emptyText = "No NFTs found for this collection.",
   contractAddress,
-}: Props) {
+}: Props)=>{
   const itemsPerPage = 20;
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -75,3 +75,5 @@ export default function NFTGrid({
     </div>
   );
 }
+
+export default NFTGrid

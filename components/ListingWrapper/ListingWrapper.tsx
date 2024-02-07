@@ -14,7 +14,7 @@ type Props = {
 /**
  * Accepts a listing and renders the associated NFT for it
  */
-export default function ListingWrapper({ listing }: Props) {
+const ListingWrapper=({ listing }: Props)=>{
   const router = useRouter();
   const contractAddress = router.query.contractAddress as string; // Updated
   const { contract: nftContract } = useContract(contractAddress);
@@ -41,3 +41,5 @@ export default function ListingWrapper({ listing }: Props) {
     </Link>
   );
 }
+
+export default ListingWrapper
