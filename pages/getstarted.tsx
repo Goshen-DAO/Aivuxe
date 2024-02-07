@@ -18,7 +18,6 @@ import {
 } from "@thirdweb-dev/react";
 import { useRouter } from "next/router";
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import InfiniteSlider from "../components/InfiniteSlider/InfiniteSlider";
 import { NETWORK } from "../const/contractAddresses";
 import toast, { Toaster } from "react-hot-toast";
 import { client } from "../lib/sanityClient";
@@ -167,7 +166,7 @@ const GetStarted: React.FC = () => {
               <Text as="b" fontSize="4xl" color="white">
                 Featured Collection🔥
               </Text>
-              <InfiniteSlider />
+
               <Text as="b" fontSize="6xl" color="white">
                 Search for your favorite collection now!
               </Text>
