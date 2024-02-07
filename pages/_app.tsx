@@ -94,18 +94,18 @@ function MyApp({ Component, pageProps }: AppProps) {
       ]}
     >
       <ChakraProvider theme={theme}>
-      {/* Progress bar when navigating between pages */}
-      <NextNProgress
-        color="var(--color-tertiary)"
-        startPosition={0.3}
-        stopDelayMs={200}
-        height={3}
-        showOnShallow={true}
-      />
+        {/* Progress bar when navigating between pages */}
+        <NextNProgress
+          color="var(--color-tertiary)"
+          startPosition={0.3}
+          stopDelayMs={200}
+          height={3}
+          showOnShallow={true}
+        />
 
-      {/* Render the navigation menu above each component */}
-      {/* Render the actual component (page) */}
-      <Component {...pageProps} />
+        {/* Render the navigation menu above each component */}
+        {/* Render the actual component (page) */}
+        <Component {...pageProps} />
       </ChakraProvider>
     </ThirdwebProvider>
   );
