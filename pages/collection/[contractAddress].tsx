@@ -5,19 +5,19 @@ import Container from "../../components/Container/Container";
 import NFTGrid from "../../components/NFT/NFTGrid";
 import SellModal from "../../components/SellModal/SellModal";
 import { useRouter } from "next/router";
+import { Navbar } from "../../components/Navbar/Navbar";
+import CollectionInformationComponents from "../../components/CollectionInformation/CollectionInformationComponents";
 import {
   Flex,
-  Heading,
   Tabs,
   TabList,
   TabPanels,
   Tab,
   TabPanel,
-  Link,
-  Button
+  TabIndicator
 } from "@chakra-ui/react";
 
-import { Navbar } from "../../components/Navbar/Navbar";
+
 
 export default function ProjectPage() {
   const router = useRouter();
@@ -36,17 +36,13 @@ export default function ProjectPage() {
 
 
   return (
-    <Container maxWidth="lg">
-        <Navbar />
-        <br/>
-        <Link href="/getstarted">
-            <Button mb={4}>Back</Button>
-          </Link>
-      <br></br>
-      <br></br>
-      <br></br>
+    <>
+    <Navbar/>
+    <Container maxWidth="xl">
+      <CollectionInformationComponents />
       <Flex flexDirection={"column"} w={"100%"}>
             <Tabs
+              position="relative" variant="unstyled"
               index={parentTabIndex}
               onChange={(index) => setParentTabIndex(index)}
             >
@@ -54,9 +50,14 @@ export default function ProjectPage() {
                 <Tab>Buy</Tab>
                 <Tab>Sell</Tab>
               </TabList>
+              <TabIndicator
+      mt="-1.5px"
+      height="2px"
+      bg="blue.500"
+      borderRadius="1px"
+    />
               <TabPanels mt={4}>
                 <TabPanel>
-                  <Heading textAlign={["center"]}>Buy</Heading>
       <p>Browse which NFTs are available from the collection.</p>
       <NFTGrid
         data={data}
@@ -68,7 +69,6 @@ export default function ProjectPage() {
       />
       </TabPanel>
       <TabPanel>
-                  <Heading textAlign={["center"]}>Sell</Heading>
                   <p>Select which NFT you&rsquo;d like to sell below.</p>
                   <SellModal />
                   </TabPanel>
@@ -76,5 +76,6 @@ export default function ProjectPage() {
       </Tabs>
       </Flex>
     </Container>
+    </>
   );
 }

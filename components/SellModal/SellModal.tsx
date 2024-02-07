@@ -23,9 +23,8 @@ export default function SellModal() {
   const [selectedNft, setSelectedNft] = useState<NFTType>();
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="xl">
       {!selectedNft ? (
-        <>
           <NFTGrid
             data={data}
             isLoading={isLoading}
@@ -37,7 +36,6 @@ export default function SellModal() {
               "Looks like you don't own any NFTs in this collection. Head to the buy page to buy some!"
             }
           />
-        </>
       ) : (
         <div className={tokenPageStyles.container} style={{ marginTop: 0 }}>
           <div className={tokenPageStyles.metadataContainer}>
@@ -46,7 +44,12 @@ export default function SellModal() {
                 metadata={selectedNft.metadata}
                 className={tokenPageStyles.image}
               />
-              <button
+              
+            </div>
+          </div>
+          
+          <div className={tokenPageStyles.listingContainer}>
+          <button
                 onClick={() => {
                   setSelectedNft(undefined);
                 }}
@@ -54,11 +57,9 @@ export default function SellModal() {
               >
                 X
               </button>
-            </div>
-          </div>
+            <center><i>You&rsquo;re about to list the following item for sale.</i></center>
 
-          <div className={tokenPageStyles.listingContainer}>
-            <p>You&rsquo;re about to list the following item for sale.</p>
+            <br/>
             <h1 className={tokenPageStyles.title}>
               {selectedNft.metadata.name}
             </h1>

@@ -71,8 +71,8 @@ export default function SaleInfo({ nft }: Props) {
         tokenId: nft.metadata.id,
         startDate: new Date(),
         endDate: new Date(),
-        floorPrice: "0",
-        buyoutPrice: "0",
+        floorPrice: "0" + "ZETA",
+        buyoutPrice: "0" + "ZETA",
       },
     });
 
@@ -92,7 +92,7 @@ export default function SaleInfo({ nft }: Props) {
       ]);
 
       if (txResult) {
-        toast.success("Marketplace approval granted", {
+        toast.success("Marketplace Approval Granted", {
           icon: "👍",
           style: toastStyle,
           position: "bottom-center",
@@ -111,7 +111,7 @@ export default function SaleInfo({ nft }: Props) {
         tokenId: nft.metadata.id,
         startDate: new Date(),
         endDate: new Date(),
-        price: "0",
+        price: "0" + "ZETA",
       },
     });
 
@@ -146,6 +146,8 @@ export default function SaleInfo({ nft }: Props) {
     <>
       <Toaster position="bottom-center" reverseOrder={false} />
       <div className={styles.saleInfoContainer} style={{ marginTop: -42 }}>
+        <br/>
+        <br/>
         <div className={profileStyles.tabs}>
           <h3
             className={`${profileStyles.tab} 
@@ -194,7 +196,7 @@ export default function SaleInfo({ nft }: Props) {
           <h4 className={styles.formSectionTitle}>Price </h4>
 
           {/* Input field for buyout price */}
-          <legend className={styles.legend}> Price per token</legend>
+          <legend className={styles.legend}> Price per Collectible</legend>
           <input
             className={styles.input}
             type="number"
@@ -221,7 +223,7 @@ export default function SaleInfo({ nft }: Props) {
                 position: "bottom-center",
               });
               router.push(
-                `/projects/${contractAddress}/${nft.metadata.id}`
+                `/collection/${contractAddress}/${nft.metadata.id}`
               );
             }}
           >
@@ -296,7 +298,7 @@ export default function SaleInfo({ nft }: Props) {
                 position: "bottom-center",
               });
               router.push(
-                `/projects/${contractAddress}/${nft.metadata.id}`
+                `/collection/${contractAddress}/${nft.metadata.id}`
               );
             }}
           >

@@ -5,10 +5,12 @@ import {
   useContractEvents,
   useValidDirectListings,
   useValidEnglishAuctions,
-  Web3Button,
-  detectContractFeature
+  detectContractFeature,
+  useNFTs
 } from "@thirdweb-dev/react";
-import { Grid, GridItem, Box, Text } from '@chakra-ui/react';
+import dynamic from 'next/dynamic';
+import { Grid, GridItem, Box, Text, Flex } from '@chakra-ui/react';
+import NFTGrid from "../../../components/NFT/NFTGrid";
 import React, { useState } from "react";
 import Container from "../../../components/Container/Container";
 import { GetStaticProps, GetStaticPaths } from "next";
@@ -25,6 +27,8 @@ import Skeleton from "../../../components/Skeleton/Skeleton";
 import toast, { Toaster } from "react-hot-toast";
 import toastStyle from "../../../util/toastConfig";
 import { useRouter } from "next/router";
+import { Button} from '@chakra-ui/react';
+import NextLink from 'next/link';
 import { Navbar } from "../../../components/Navbar/Navbar";
 
 type Props = {
@@ -37,6 +41,16 @@ export default function TokenPage({ nft, contractMetadata }: Props) {
   const router = useRouter();
   const { contractAddress }: any = router.query;
 
+  const { contract } = useContract(contractAddress);
+  const Web3Button = dynamic(() => import('@thirdweb-dev/react').then((module) => module.Web3Button), { ssr: false });
+
+  const { data, isLoading,} = useNFTs(
+    contract,
+    {
+      count: 5, // Limit the number of results
+      start: 0, // Start from the nth result (useful for pagination)
+    },
+  );
   // Update NFT_COLLECTION_ADDRESS based on the contractAddress from the URL
   const dynamicNFTCollectionAddress = contractAddress as string;
 
@@ -127,9 +141,10 @@ export default function TokenPage({ nft, contractMetadata }: Props) {
 
   return (
     <>
-    <Navbar />
+    <Navbar/>
       <Toaster position="bottom-center" reverseOrder={false} />
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
+
         <div className={styles.container}>
           <div className={styles.metadataContainer}>
             <ThirdwebNftMedia
@@ -138,10 +153,10 @@ export default function TokenPage({ nft, contractMetadata }: Props) {
             />
 
             <div className={styles.descriptionContainer}>
-              <h3 className={styles.descriptionTitle}>Description</h3>
+              <h1 className={styles.descriptionTitle}>Description</h1>
               <p className={styles.description}>{nft.metadata.description}</p>
 
-              <h3 className={styles.descriptionTitle}>Traits</h3>
+              <h1 className={styles.descriptionTitle}>Traits</h1>
 
               <Grid
   templateColumns="repeat(2, 1fr)"
@@ -161,7 +176,7 @@ export default function TokenPage({ nft, contractMetadata }: Props) {
     ))}
 </Grid>
 
-              <h3 className={styles.descriptionTitle}>History</h3>
+              <h1 className={styles.descriptionTitle}>History</h1>
 
               <div className={styles.traitsContainer}>
                 {transferEvents?.map((event, index) => (
@@ -211,6 +226,7 @@ export default function TokenPage({ nft, contractMetadata }: Props) {
               </div>
             </div>
           </div>
+          
 
           <div className={styles.listingContainer}>
             {contractMetadata && (
@@ -365,6 +381,30 @@ export default function TokenPage({ nft, contractMetadata }: Props) {
             )}
           </div>
         </div>
+        <div>
+          <Box> </Box>
+            <h1 className={styles.descriptionTitle}>More From This Collection</h1>
+            <Flex justifyContent="flex-end" alignItems="center">
+            <NextLink href={`/collection/${contractAddress}`} passHref >
+  <Button
+    as="a"
+    href={`/collection/${contractAddress}`}
+    colorScheme="teal"
+    ml="auto" // This adds margin-left to push the button to the right
+  >
+    View All
+  </Button>
+</NextLink>
+</Flex>
+            <NFTGrid
+        data={data}
+        isLoading={isLoading}
+        emptyText={
+          "Looks like there are no NFTs in this collection."
+        }
+        contractAddress={contractAddress} // Pass the contract address as a prop
+      />
+            </div>
       </Container>
     </>
   );

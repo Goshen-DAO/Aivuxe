@@ -42,7 +42,7 @@ export default function NFTGrid({
         currentData.map((nft) =>
           !overrideOnclickBehavior ? (
             <Link
-              href={`/projects/${contractAddress}/${nft.metadata.id}`}
+              href={`/collection/${contractAddress}/${nft.metadata.id}`}
               key={nft.metadata.id}
               className={styles.nftContainer}
             >

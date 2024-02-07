@@ -10,8 +10,24 @@ import {  ThirdwebProvider,
   safeWallet, } from "@thirdweb-dev/react";
 import NextNProgress from "nextjs-progressbar";
 import "../styles/globals.css";
+import { ChakraProvider, extendTheme } from '@chakra-ui/react'
+
 
 const clientAPI = process.env.THIRDWEB_API_KEY as string;
+const theme = extendTheme({
+  styles: {
+    global: () => ({
+      'html, body': {
+        fontFamily: `'Raleway', sans-serif`,
+        color: 'white',
+        bg: "linear-gradient(to left, #0e1c26, #2a454b, #294861)",
+      },
+      a: {
+        color: 'teal.100',
+      },
+    }),
+  },
+});
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -77,6 +93,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         rainbowWallet(),
       ]}
     >
+      <ChakraProvider theme={theme}>
       {/* Progress bar when navigating between pages */}
       <NextNProgress
         color="var(--color-tertiary)"
@@ -87,9 +104,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       />
 
       {/* Render the navigation menu above each component */}
-
       {/* Render the actual component (page) */}
       <Component {...pageProps} />
+      </ChakraProvider>
     </ThirdwebProvider>
   );
 }

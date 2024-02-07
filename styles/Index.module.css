@@ -1,0 +1,40 @@
+.heroAssetFrame {
+    width: 200px; /* Adjust the width as needed */
+    height: 200px; /* Adjust the height as needed */
+    background-color: #ffffff; /* Set the background color */
+    border: 2px solid #000000; /* Set the border color and thickness */
+    border-radius: 8px; /* Set the border-radius for rounded corners */
+  }
+  
+  /* Apply styles to the hero title gradient */
+  .heroTitleGradient {
+    color: #ffffff; /* Set the text color */
+    font-size: 2rem; /* Set the font size */
+    font-weight: bold; /* Set the font weight to bold */
+    text-align: center; /* Center-align the text */
+    margin-top: 20px; /* Add top margin as needed */
+  }
+  
+  /* Apply styles to the hero body text */
+  .heroBodyText {
+    color: #ffffff; /* Set the text color */
+    font-size: 1.5rem; /* Set the font size */
+    text-align: center; /* Center-align the text */
+    margin-top: 10px; /* Add top margin as needed */
+  }
+  
+  /* Apply styles to the hero CTA link */
+  .heroCta {
+    color: #ffffff; /* Set the text color */
+    font-size: 1.2rem; /* Set the font size */
+    text-decoration: none; /* Remove underline */
+    background-color: #008080; /* Set the background color */
+    padding: 10px 20px; /* Add padding */
+    border-radius: 5px; /* Set the border-radius for rounded corners */
+    transition: background-color 0.3s ease; /* Add transition effect */
+  }
+  
+  /* Hover effect for the hero CTA link */
+  .heroCta:hover {
+    background-color: #006666; /* Change background color on hover */
+  }
