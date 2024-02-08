@@ -16,7 +16,9 @@ import {
   useMediaQuery,
   Button,
   Box,
-  Input
+  Input,
+  Select,
+  extendTheme 
 } from "@chakra-ui/react";
 import { ConnectWallet, useAddress, useDisconnect } from "@thirdweb-dev/react";
 import Link from "next/link";
@@ -24,7 +26,12 @@ import { FaBars } from "react-icons/fa";
 import { useRouter } from "next/router";
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 import { NETWORK } from "../../const/contractAddresses";
-import { MdOutlineAccountBalanceWallet } from 'react-icons/md';
+import { MdOutlineAccountBalanceWallet, MdArrowDropDown  } from 'react-icons/md';
+import { selectTheme } from '../../theme/chakra-theme-select'
+
+export const theme = extendTheme({
+  components: { Select: selectTheme },
+})
 
 interface NavbarProps {}
 
@@ -40,6 +47,21 @@ const Navbar: React.FC<NavbarProps> = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isSmallerScreen] = useMediaQuery("(max-width: 768px)");
 
+  const [selectedOption, setSelectedOption] = useState('berachainartio');
+
+  const handleSelectChange = (event: { target: { value: any; }; }) => {
+    const selectedValue = event.target.value;
+
+    // Update state to reflect the selected option
+    setSelectedOption(selectedValue);
+
+    // Perform the redirect based on the selected option
+    if (selectedValue === 'berachainartio') {
+      window.location.href = 'https://aivuxe.goshendao.com';
+    } else if (selectedValue === 'comingsoon') {
+      window.location.href = '#';
+    }
+  };
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -119,98 +141,52 @@ const Navbar: React.FC<NavbarProps> = () => {
         />
         ) : (
           address && (
-            <Flex flexDirection={"row"}
-            >
-              <Box
+            <Flex flexDirection="row" alignItems="center" justifyContent="center">
+  <Box
     display="flex"
     alignItems="center"
-    marginLeft="auto" // Add this line
-    marginRight="auto" // Add this line
+    m="0"
   >
     <Input
-      className="searchInput"
       type="text"
       placeholder="🔍 Search Collections"
       value={searchInput}
       onChange={(e: { target: { value: React.SetStateAction<string>; }; }) => setSearchInput(e.target.value)}
       onKeyPress={handleKeyPress}
-      marginRight="10px" // Add this line to set the margin on the right
+      mr="25px"
       style={{ color: 'white' }}
     />
-    <Button
-      w="100px"
-      p="12px 40px"
-      border="3px solid hsla(0, 0%, 100%, 0.1)"
-      m="16px 0"
-      bg="hsla(0, 0%, 100%, 0.9)"
-      borderRadius="8px"
-      color="#0d0d0d"
-      fontSize="16px"
-      fontWeight="500"
-      letterSpacing="0.2px"
-      lineHeight="20px"
-      transition="opacity 0.2s"
-      _hover={{
-        cursor: "pointer",
-        opacity: 0.7,
-      }}
-      onClick={handleSearch}
-      position="relative"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      className="heroCta" // Add your heroCta class here
-    >
-      Search
-      <span
-        style={{
-          position: "absolute",
-          zIndex: "-1",
-          top: "5px",
-          right: "5px",
-          bottom: "0",
-          left: "5px",
-          background:
-            "conic-gradient(from 147.14deg at 50% 50%, var(--color-primary) -55.68deg, var(--color-secondary) 113.23deg, var(--color-tertiary) 195deg, var(--color-quaternary) 304.32deg, var(--color-primary) 473.23deg)",
-          borderRadius: "6px",
-          content: "''",
-          filter: "blur(20px)",
-          opacity: "0.6",
-        }}
-      />
-    </Button>
-
-    {/* Display search results dropdown */}
-    {searchResults.length > 0 && (
-      <Box className="resultsDropdown">
-        {searchResults.map((result) => (
-          <Box
-            key={result.address}
-            className="resultItem"
-            onClick={() => handleResultClick(result.address)}
-          >
-            <Image
-              className="resultImage"
-              src={result.image || "/default-image.png"}
-              width={32}
-              height={32}
-              alt="Contract Image"
-            />
-            <p className="resultName">{result.name}</p>
-          </Box>
-        ))}
-      </Box>
-    )}
   </Box>
-              <span></span>
-              <ConnectWallet theme="dark" btnTitle="Login" />
-            </Flex>
+
+  <span>
+    <Select
+      icon={<MdArrowDropDown />}
+      placeholder='Select Network'
+      onChange={handleSelectChange}
+      value={selectedOption}
+      bg="white"
+      color="black"
+    >
+      <option value='berachainartio'>Berachain Artio</option>
+      <option value='comingsoon'>Coming soon</option>
+    </Select>
+  </span>
+
+  <ConnectWallet theme="dark" btnTitle="Login" 
+  detailsBtn={() => {
+    return (
+      <MdOutlineAccountBalanceWallet size="50px"/>
+    )
+  }}
+  />
+</Flex>
+
           )
         )}
         <Modal isOpen={isOpen} onClose={closeMenu} size="xs">
           <ModalOverlay />
           <ModalContent
-            background="rgba(0, 62, 17, 0.1)" // Set the modal background color with opacity
+            background="rgba(27, 38, 21, 0.2)" // Set the modal background color with opacity
             backdropFilter="blur(8px)" // Set the modal blur effect
           >
             <ModalHeader color="white">Menu</ModalHeader>
@@ -232,7 +208,6 @@ const Navbar: React.FC<NavbarProps> = () => {
     marginRight="auto" // Add this line
   >
     <Input
-      className="searchInput"
       type="text"
       placeholder="🔍 Search Collections"
       value={searchInput}
@@ -308,12 +283,7 @@ const Navbar: React.FC<NavbarProps> = () => {
               <span></span>
              
             </Flex>
-            <ConnectWallet theme="dark" btnTitle="Login" 
-            detailsBtn={() => {
-   return (
-     <MdOutlineAccountBalanceWallet/>
-   )
- }}/>
+            <ConnectWallet theme="dark" btnTitle="Login"/>
               <Button onClick={disconnect}>Logout</Button>
                     
                   </>

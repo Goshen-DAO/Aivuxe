@@ -1,0 +1,126 @@
+
+
+.bannerImageContainer {
+    height: 20vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bannerImage {
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .infoContainer {
+    width: 100vw;
+    padding: 0 4px;
+    color:#151b22;
+  }
+  
+  .midRow {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: white;
+  }
+  
+  .endRow {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+  }
+  
+  .profileImg {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid #202225;
+    border-radius: 50%;
+    margin-top: -4rem;
+  }
+  
+  .socialIconsContainer {
+    display: flex;
+    font-size: 3rem;
+    margin-bottom: -2rem;
+  }
+  
+  .socialIconsWrapper {
+    width: 44px;
+  }
+  
+  .socialIconsContent {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    padding: 0 2px;
+  }
+  
+  .socialIcon {
+    margin-top: 2px;
+  }
+  
+  .divider {
+    border-right: 2px solid #fff;
+  }
+  
+  .title {
+    font-size: 5xl;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  
+  .createdBy {
+    font-size: lg;
+    margin-bottom: 4px;
+  }
+  
+  .statsContainer {
+    width: 44vw;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    border: 2px solid #151b22;
+    border-radius: 12px;
+    margin-bottom: 4px;
+  }
+  
+  .collectionStat {
+    width: 25%;
+  }
+  
+  .statValue {
+    font-size: 3xl;
+    font-weight: bold;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .ethLogo {
+    height: 6px;
+    margin-right: 2px;
+  }
+  
+  .statName {
+    font-size: lg;
+    width: 100%;
+    text-align: center;
+    margin-top: 1px;
+  }
+  
+  .description {
+    color: #8a939b;
+    font-size: xl;
+    max-width: 25%;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  

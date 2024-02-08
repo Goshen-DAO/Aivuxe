@@ -20,7 +20,7 @@ const CollectionInformationComponents: FC = () => {
     <Box
       borderRadius="50%"
       overflow="hidden"
-      border="2px solid #fff"
+      border="2px solid #00000"
       borderColor="gray.200"
       width={`${imageSize}px`}
       height={`${imageSize}px`}
@@ -31,9 +31,6 @@ const CollectionInformationComponents: FC = () => {
       <CollectionInformation contractAddress={contractAddress} tokenId={tokenId} />
     </Box>
     {/* Additional collection information can be added here */}
-    <Text mt="4">
-      Loading...
-    </Text>
   </Flex>
 </Container>
 
