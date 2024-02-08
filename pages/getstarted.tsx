@@ -21,7 +21,6 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 import { NETWORK } from "../const/contractAddresses";
 import toast, { Toaster } from "react-hot-toast";
 import { client } from "../lib/sanityClient";
-import  NavbarNoSearch  from "../components/NavbarNoSearch/NavbarNoSearch";
 
 const loginOptional = false;
 
@@ -149,7 +148,6 @@ const GetStarted: React.FC = () => {
         </div>
       ) : (
         <>
-          <NavbarNoSearch />
           <Toaster position="top-center" reverseOrder={false} />
           <Container maxW="100%">
             <Flex

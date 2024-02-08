@@ -9,12 +9,14 @@ import {  ThirdwebProvider,
   trustWallet,
   rainbowWallet,
   safeWallet, } from "@thirdweb-dev/react";
-import "../styles/globals.css";
+import "../styles/styles.css";
+import { NETWORK, clientAPI } from '../const/contractAddresses'
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
+import { selectTheme } from '../theme/chakra-theme-select';
 import Head from 'next/head';
+import  Navbar  from "../components/Navbar/Navbar";
 
 
-const clientAPI = process.env.THIRDWEB_API_KEY as string;
 const theme = extendTheme({
   styles: {
     global: () => ({
@@ -27,6 +29,9 @@ const theme = extendTheme({
         color: 'teal.100',
       },
     }),
+    components: {
+      Select: selectTheme,
+    },
   },
 });
 
@@ -45,25 +50,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         
       </Head>
     <ThirdwebProvider
-      activeChain={{
-        // === Required information for connecting to the network === \\
-        chainId: 7000, // Chain ID of the network
-        // Array of RPC URLs to use
-        rpc: ["https://zetachain-evm.blockpi.network/v1/rpc/public"],
-
-        // === Information for adding the network to your wallet (how it will appear for first time users) === \\
-        // Information about the chain's native currency (i.e. the currency that is used to pay for gas)
-        nativeCurrency: {
-          decimals: 18,
-          name: "ZetaChain",
-          symbol: "ZETA",
-        },
-        shortName: "zetachain", // Display value shown in the wallet UI
-        slug: "zetachain", // Display value shown in the wallet UI
-        testnet: true, // Boolean indicating whether the chain is a testnet or mainnet
-        chain: "ZetaChain", // Name of the network
-        name: "ZetaChain", // Name of the network
-      }}
+      activeChain={NETWORK}
       clientId={clientAPI}
       supportedWallets={[
         metamaskWallet(),
@@ -107,6 +94,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       ]}
     >
       <ChakraProvider theme={theme}>
+      <Navbar/>
       <AnyComponent {...pageProps} />
       </ChakraProvider>
     </ThirdwebProvider>

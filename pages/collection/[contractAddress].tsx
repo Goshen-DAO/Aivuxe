@@ -1,11 +1,9 @@
 // ProjectPage.tsx
 import { useContract, useNFTs } from "@thirdweb-dev/react";
 import React from "react";
-import Container from "../../components/Container/Container";
 import NFTGrid from "../../components/NFT/NFTGrid";
 import SellModal from "../../components/SellModal/SellModal";
 import { useRouter } from "next/router";
-import  Navbar  from "../../components/Navbar/Navbar";
 import CollectionInformationComponents from "../../components/CollectionInformation/CollectionInformationComponents";
 import {
   Flex,
@@ -14,7 +12,8 @@ import {
   TabPanels,
   Tab,
   TabPanel,
-  TabIndicator
+  TabIndicator,
+  Container
 } from "@chakra-ui/react";
 
 
@@ -37,14 +36,13 @@ const ProjectPage=()=>{
 
   return (
     <>
-    <Navbar/>
-    <Container maxWidth="xl">
+    <Container maxWidth="100%">
       <CollectionInformationComponents />
       <Flex flexDirection={"column"} w={"100%"}>
             <Tabs
               position="relative" variant="unstyled"
               index={parentTabIndex}
-              onChange={(index) => setParentTabIndex(index)}
+              onChange={(index: React.SetStateAction<number>) => setParentTabIndex(index)}
             >
               <TabList>
                 <Tab>Buy</Tab>
