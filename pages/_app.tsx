@@ -37,40 +37,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Head>
         {/* HTML Meta Tags */}
         <title>Aivuxe | Permissionless & Open Source NFT Marketplace</title>
-        <meta
-          name="description"
-          content="Aivuxe is a groundbreaking project, an open-source and permissionless NFT marketplace that stands out by seamlessly supporting EVM chains. Offering a liberating space for creators and collectors alike, Aivuxe empowers individuals to engage with NFTs on their terms. Dive into the world of limitless possibilities and creative freedom with Aivuxe."
-        />
-
-        {/* Facebook Meta Tags */}
-        <meta property="og:url" content="https://aivuxe.goshendao.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Aivuxe | Permissionless & Open Source NFT Marketplace" />
-        <meta
-          property="og:description"
-          content="Aivuxe is a groundbreaking project, an open-source and permissionless NFT marketplace that stands out by seamlessly supporting EVM chains. Offering a liberating space for creators and collectors alike, Aivuxe empowers individuals to engage with NFTs on their terms. Dive into the world of limitless possibilities and creative freedom with Aivuxe."
-        />
-        <meta
-          property="og:image"
-          content="https://opengraph.b-cdn.net/production/documents/afa32639-e47d-4db9-8c85-f41605d87fee.png?token=62NNzmR4OB0BsmJj5HBxZaGjxShdl8_CEH2TvjvSl6g&height=682&width=1200&expires=33243301356"
-        />
-
-        {/* Twitter Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:domain" content="aivuxe.goshendao.com" />
-        <meta property="twitter:url" content="https://aivuxe.goshendao.com/" />
-        <meta
-          name="twitter:title"
-          content="Aivuxe | Permissionless & Open Source NFT Marketplace"
-        />
-        <meta
-          name="twitter:description"
-          content="Aivuxe is a groundbreaking project, an open-source and permissionless NFT marketplace that stands out by seamlessly supporting EVM chains. Offering a liberating space for creators and collectors alike, Aivuxe empowers individuals to engage with NFTs on their terms. Dive into the world of limitless possibilities and creative freedom with Aivuxe."
-        />
-        <meta
-          name="twitter:image"
-          content="https://opengraph.b-cdn.net/production/documents/afa32639-e47d-4db9-8c85-f41605d87fee.png?token=62NNzmR4OB0BsmJj5HBxZaGjxShdl8_CEH2TvjvSl6g&height=682&width=1200&expires=33243301356"
-        />
+        <meta property="og:url" content="https://aivuxe.goshendao.com" />
+        <meta property="og:image" content="https://raw.githubusercontent.com/Goshen-DAO/Aivuxe/dev/public/meta_image.png" />
+        <meta property="og:description" content="Aivuxe is a groundbreaking project, an open-source and permissionless NFT marketplace that stands out by seamlessly supporting EVM chains. Offering a liberating space for creators and collectors alike, Aivuxe empowers individuals to engage with NFTs on their terms. Dive into the world of limitless possibilities and creative freedom with Aivuxe." />
+        
       </Head>
     <ThirdwebProvider
       activeChain={{
