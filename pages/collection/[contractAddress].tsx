@@ -61,7 +61,7 @@ const ProjectPage=()=>{
         data={data}
         isLoading={isLoading}
         emptyText={
-          "Looks like there are no NFTs in this collection. Did you import your contract on the thirdweb dashboard? https://thirdweb.com/dashboard"
+          "Looks like there are no NFTs in this collection."
         }
         contractAddress={contractAddress} // Pass the contract address as a prop
       />
