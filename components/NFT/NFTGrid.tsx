@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Skeleton from "../Skeleton/Skeleton";
 import NFT from "./NFT";
 import styles from "../../styles/Buy.module.css";
+import { Button } from '@chakra-ui/react';
 
 type Props = {
   isLoading: boolean;
@@ -20,16 +21,6 @@ const NFTGrid = ({
   emptyText = "No NFTs found for this collection.",
   contractAddress,
 }: Props)=>{
-  const itemsPerPage = 20;
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentData = data?.slice(indexOfFirstItem, indexOfLastItem);
-
-  const nextPage = () => setCurrentPage((prev) => prev + 1);
-  const prevPage = () => setCurrentPage((prev) => prev - 1);
-
   return (
     <div className={styles.nftGridContainer}>
       {isLoading ? (
@@ -38,11 +29,11 @@ const NFTGrid = ({
             <Skeleton key={index} width={"100%"} height="312px" />
           </div>
         ))
-      ) : currentData && currentData.length > 0 ? (
-        currentData.map((nft) =>
+      ) : data && data.length > 0 ? (
+        data.map((nft) =>
           !overrideOnclickBehavior ? (
             <Link
-              href={`/collection/${contractAddress}/${nft.metadata.id}`}
+            href={`/collection/${contractAddress}/${nft.metadata.id}`}
               key={nft.metadata.id}
               className={styles.nftContainer}
             >
@@ -60,17 +51,6 @@ const NFTGrid = ({
         )
       ) : (
         <p>{emptyText}</p>
-      )}
-
-      {data && data.length > itemsPerPage && (
-        <div className={styles.paginationContainer}>
-          <button onClick={prevPage} disabled={currentPage === 1}>
-            Previous
-          </button>
-          <button onClick={nextPage} disabled={indexOfLastItem >= data.length}>
-            Next
-          </button>
-        </div>
       )}
     </div>
   );
