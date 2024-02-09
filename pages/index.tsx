@@ -57,7 +57,7 @@ const Home: React.FC = () => {
                     </Text>
                     <br />
                   </Heading>
-                  <Text as="h2">Don't be bound by the platform, be free.</Text>
+                  <Text as="h2">Don&apos;t be bound by the platform, be free.</Text>
                   <Button
                     w="280px"
                     p="12px 40px"
@@ -134,7 +134,7 @@ const Home: React.FC = () => {
                     </Text>
                     <br />
                   </Heading>
-                  <Text as="h2">Don't be bound by the platform, be free.</Text>
+                  <Text as="h2">Don&apos;t be bound by the platform, be free.</Text>
                   <Button
                     w="280px"
                     p="12px 40px"
