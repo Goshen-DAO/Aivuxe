@@ -161,7 +161,6 @@ const Navbar: React.FC<NavbarProps> = () => {
   <span>
     <Select
       icon={<MdArrowDropDown />}
-      placeholder='Select Network'
       onChange={handleSelectChange}
       value={selectedOption}
       bg="white"
