@@ -141,7 +141,6 @@ const TokenPage=({ nft, contractMetadata }: Props)=>{
 
   return (
     <>
-    <Navbar/>
       <Toaster position="bottom-center" reverseOrder={false} />
       <Container maxWidth="xl">
 
