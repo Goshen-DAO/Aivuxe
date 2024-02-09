@@ -380,30 +380,6 @@ const TokenPage=({ nft, contractMetadata }: Props)=>{
             )}
           </div>
         </div>
-        <div>
-          <Box> </Box>
-            <h1 className={styles.descriptionTitle}>More From This Collection</h1>
-            <Flex justifyContent="flex-end" alignItems="center">
-            <NextLink href={`/collection/${contractAddress}`} passHref >
-  <Button
-    as="a"
-    href={`/collection/${contractAddress}`}
-    colorScheme="teal"
-    ml="auto" // This adds margin-left to push the button to the right
-  >
-    View All
-  </Button>
-</NextLink>
-</Flex>
-            <NFTGrid
-        data={data}
-        isLoading={isLoading}
-        emptyText={
-          "Looks like there are no NFTs in this collection."
-        }
-        contractAddress={contractAddress} // Pass the contract address as a prop
-      />
-            </div>
       </Container>
     </>
   );
