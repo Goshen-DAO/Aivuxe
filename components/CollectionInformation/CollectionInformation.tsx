@@ -19,7 +19,7 @@ const CollectionInformation: FC<CollectionInformationProps> = ({ contractAddress
   if (isLoading) return <div>Loading...</div>;
   if (error || !nft) return <div>NFT not found</div>;
 
-  return <ThirdwebNftMedia metadata={nft.metadata} />;
+  return <ThirdwebNftMedia metadata={nft?.metadata as any ? nft?.metadata as any : 'https://via.placeholder.com/200'} />;
 };
 
 export default CollectionInformation;
