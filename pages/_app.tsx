@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         {/* HTML Meta Tags */}
         <title>Aivuxe | Permissionless & Open Source NFT Marketplace</title>
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Aivuxe | Permissionless & Open Source NFT Marketplace" />
+        <meta property="og:title" content="Aivuxe | A Berachain NFT Marketplace" />
         <meta property="og:url" content="https://aivuxe.goshendao.com" />
         <meta property="og:image" content="https://raw.githubusercontent.com/Goshen-DAO/Aivuxe/dev/public/meta_image.png" />
         <meta property="og:description" content="Aivuxe is a groundbreaking project, an open-source and permissionless NFT marketplace that stands out by seamlessly supporting EVM chains. Offering a liberating space for creators and collectors alike, Aivuxe empowers individuals to engage with NFTs on their terms. Dive into the world of limitless possibilities and creative freedom with Aivuxe." />
