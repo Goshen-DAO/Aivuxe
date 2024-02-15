@@ -283,7 +283,7 @@ if (theme === "system") {
 
       <div className="grid h-screen grid-cols-1 lg:grid-cols-12">
         <div className="items-center justify-center hidden w-full h-full lg:col-span-5 lg:flex lg:px-12">
-          <HeadingImage
+        <HeadingImage
             src={contractMetadata.data?.image || firstNft?.metadata.image || ""}
             isLoading={isLoading}
           />
@@ -291,10 +291,14 @@ if (theme === "system") {
         <div className="flex items-center justify-center w-full h-full col-span-1 lg:col-span-7">
           <div className="flex flex-col w-full max-w-xl gap-4 p-12 rounded-xl lg:border lg:border-gray-400 lg:dark:border-gray-800">
             <div className="flex w-full mt-8 xs:mb-8 xs:mt-0 lg:hidden">
-              <HeadingImage
+            <HeadingImage
                 src={contractMetadata.data?.image || firstNft?.metadata.image || ""}
                 isLoading={isLoading}
               />
+            </div>
+
+            <div>
+
             </div>
 
             <div className="flex flex-col gap-2 xs:gap-4">
@@ -403,6 +407,7 @@ if (theme === "system") {
                         +
                       </button>
                     </div>
+
                     <Web3Button
                       contractAddress={
                         contractQuery.contract?.getAddress() || ""
