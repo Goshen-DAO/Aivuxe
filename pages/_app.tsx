@@ -15,6 +15,7 @@ import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import { selectTheme } from '../theme/chakra-theme-select';
 import Head from 'next/head';
 import  Navbar  from "../components/Navbar/Navbar";
+import  { Footer }  from "../components/Footer/Footer";
 
 
 const theme = extendTheme({
@@ -41,7 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
     <Head>
         {/* HTML Meta Tags */}
-        <title>Aivuxe | Permissionless & Open Source NFT Marketplace</title>
+        <title>Aivuxe | A Berachain NFT Marketplace</title>
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Aivuxe | A Berachain NFT Marketplace" />
         <meta property="og:url" content="https://aivuxe.goshendao.com" />
@@ -96,6 +97,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ChakraProvider theme={theme}>
       <Navbar/>
       <AnyComponent {...pageProps} />
+      <Footer/>
       </ChakraProvider>
     </ThirdwebProvider>
     </>

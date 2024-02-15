@@ -19,7 +19,7 @@ import {
   Input,
   Select,
   extendTheme,
-  Text
+  Text,
 } from "@chakra-ui/react";
 import { ConnectWallet, useAddress, useDisconnect } from "@thirdweb-dev/react";
 import Link from "next/link";
@@ -123,9 +123,19 @@ const Navbar: React.FC<NavbarProps> = () => {
     marginRight: '10px', // Adjust margin as needed
   };
 
-  const menuStyle = {
-    display: 'flex',
-    alignItems: 'right', // Align items vertically centered
+
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleLinkClick = () => {
+    setModalOpen(true);
+  };
+
+  const handleOptionClick = (option: string) => {
+    // Handle the chosen option
+    console.log(`Option "${option}" clicked`);
+    
+    // Close the modal
+    setModalOpen(false);
   };
 
   return (
@@ -160,6 +170,32 @@ const Navbar: React.FC<NavbarProps> = () => {
           address && (
             <Flex flexDirection="row" alignItems="center" justifyContent="center">
   <Link href={"/mint/0xde532BBb7683063e42bDe19ac7D1Bf5bD1CBA475"}><Text mr="25px" color="white">Passport</Text></Link>
+  <Link href={"#"} onClick={handleLinkClick}>
+        <Text mr="25px" color="white">
+          Faucet
+        </Text>
+      </Link>
+
+      <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader color="black">Choose a Faucet:</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+          <Link href={"https://artio.faucet.berachain.com/"} onClick={() => handleOptionClick('OfficialFaucet')} target="_blank">
+        <Text color="black">Official Faucet</Text>
+        </Link>
+        <br/>
+        <Link href={"https://faucet.0xhoneyjar.xyz/"} onClick={() => handleOptionClick('HoneyJar')} target="_blank">
+        <Text color="black">Honey Jar Faucet</Text>
+        </Link>
+        <br/>
+        <Link href={"https://faucet.quicknode.com/berachain/artio"} onClick={() => handleOptionClick('Quicknode')} target="_blank">
+        <Text color="black">Quicknode Faucet</Text>
+        </Link>
+        </ModalBody>
+        </ModalContent>
+      </Modal>
   <Box
     display="flex"
     alignItems="center"
@@ -217,6 +253,32 @@ const Navbar: React.FC<NavbarProps> = () => {
                 {address && (
                   <>
                   <Link href={"/mint/0xde532BBb7683063e42bDe19ac7D1Bf5bD1CBA475"}><Text color="white">Passport</Text></Link>
+                  <Link href={"#"} onClick={handleLinkClick}>
+        <Text mr="25px" color="white">
+          Faucet
+        </Text>
+      </Link>
+
+      <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader color="black">Choose a Faucet:</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+        <Link href={"https://artio.faucet.berachain.com/"} onClick={() => handleOptionClick('OfficialFaucet')} target="_blank">
+        <Text color="black">Official Faucet</Text>
+        </Link>
+        <br/>
+        <Link href={"https://faucet.0xhoneyjar.xyz/"} onClick={() => handleOptionClick('HoneyJar')} target="_blank">
+        <Text color="black">Honey Jar Faucet</Text>
+        </Link>
+        <br/>
+        <Link href={"https://faucet.quicknode.com/berachain/artio"} onClick={() => handleOptionClick('Quicknode')} target="_blank">
+        <Text color="black">Quicknode Faucet</Text>
+        </Link>
+        </ModalBody>
+        </ModalContent>
+      </Modal>
                     <Flex flexDirection={"row"}
             >
               
