@@ -53,7 +53,7 @@ const Home: React.FC = () => {
                       >
                         Aivuxe
                       </Text>{" "}
-                      <br />A Permissionless NFT Marketplace
+                      <br />A Permissionless Berachain NFT Marketplace
                     </Text>
                     <br />
                   </Heading>
@@ -130,7 +130,7 @@ const Home: React.FC = () => {
                       >
                         Aivuxe
                       </Text>{" "}
-                      <br />A Permissionless NFT Marketplace
+                      <br />A Permissionless Berachain NFT Marketplace
                     </Text>
                     <br />
                   </Heading>
