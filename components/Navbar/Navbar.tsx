@@ -18,7 +18,8 @@ import {
   Box,
   Input,
   Select,
-  extendTheme 
+  extendTheme,
+  Text
 } from "@chakra-ui/react";
 import { ConnectWallet, useAddress, useDisconnect } from "@thirdweb-dev/react";
 import Link from "next/link";
@@ -57,7 +58,7 @@ const Navbar: React.FC<NavbarProps> = () => {
 
     // Perform the redirect based on the selected option
     if (selectedValue === 'berachainartio') {
-      window.location.href = 'https://aivuxe.goshendao.com';
+      window.location.href = '/';
     } else if (selectedValue === 'comingsoon') {
       window.location.href = '#';
     }
@@ -113,6 +114,20 @@ const Navbar: React.FC<NavbarProps> = () => {
     router.push(`/collection/${contractAddress}`);
   };
 
+  const containerStyle = {
+    display: 'flex',
+    alignItems: 'center', // Align items vertically centered
+  };
+
+  const imageStyle = {
+    marginRight: '10px', // Adjust margin as needed
+  };
+
+  const menuStyle = {
+    display: 'flex',
+    alignItems: 'right', // Align items vertically centered
+  };
+
   return (
     <Container
       maxW={"100%"}
@@ -128,9 +143,11 @@ const Navbar: React.FC<NavbarProps> = () => {
         justifyContent={"space-between"}
         alignItems={"center"}
       >
-        <Link href={"/"}>
-          <Image src="/navbar_logo.png" alt="Aivuxe Logo" boxSize="auto" maxW="300px" />
+        <Link href={"/"} style={containerStyle}>
+          <Image src="/logo.png" alt="Aivuxe Logo" boxSize="auto" maxW="50px" style={imageStyle} />
+          <Text fontSize='3xl'  fontWeight="extrabold" bgGradient="linear-gradient(to right, #8399a2, #eef2f3)" bgClip="text">Aivuxe</Text>
         </Link>
+        
         {isSmallerScreen ? (
           <IconButton
           aria-label="Toggle menu"
@@ -142,6 +159,7 @@ const Navbar: React.FC<NavbarProps> = () => {
         ) : (
           address && (
             <Flex flexDirection="row" alignItems="center" justifyContent="center">
+  <Link href={"/mint/0xde532BBb7683063e42bDe19ac7D1Bf5bD1CBA475"}><Text mr="25px" color="white">Passport</Text></Link>
   <Box
     display="flex"
     alignItems="center"
@@ -198,8 +216,10 @@ const Navbar: React.FC<NavbarProps> = () => {
                 <br />
                 {address && (
                   <>
+                  <Link href={"/mint/0xde532BBb7683063e42bDe19ac7D1Bf5bD1CBA475"}><Text color="white">Passport</Text></Link>
                     <Flex flexDirection={"row"}
             >
+              
               <Box
     display="flex"
     alignItems="center"
