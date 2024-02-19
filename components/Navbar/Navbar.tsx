@@ -175,6 +175,7 @@ const Navbar: React.FC<NavbarProps> = () => {
           Faucet
         </Text>
       </Link>
+      <Link href={"https://docs.google.com/forms/d/e/1FAIpQLSeWaWlDT4BNOiGxx1zx8ArAzpqCY4zCu8J8_ObyE_b6D9gkrg/viewform?usp=sf_link"} target="_blank"><Text mr="25px" color="white">Get Featured</Text></Link>
 
       <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
         <ModalOverlay />
@@ -258,6 +259,7 @@ const Navbar: React.FC<NavbarProps> = () => {
           Faucet
         </Text>
       </Link>
+      <Link href={"https://docs.google.com/forms/d/e/1FAIpQLSeWaWlDT4BNOiGxx1zx8ArAzpqCY4zCu8J8_ObyE_b6D9gkrg/viewform?usp=sf_link"} target="_blank"><Text mr="25px" color="white">Get Featured</Text></Link>
 
       <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
         <ModalOverlay />

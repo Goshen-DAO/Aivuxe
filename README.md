@@ -40,7 +40,7 @@ Follow these simple steps to start using Aivuxe:
 
 1. Go to [Homepage](https://aivuxe.xyz) and enter the app or login using your email or web3 wallets
 2. Copy the smart contract address of an NFT deployed on the selected chain, (as of now its supporting berachain only), see list of chains [here](#chains), and press search
-3. You can check the available NFT that is for sale in the selection.
+3. You can check the available NFT that is for sale in the collection.
 
 ## Usage
 
