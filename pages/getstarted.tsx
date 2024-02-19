@@ -21,6 +21,7 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 import { NETWORK } from "../const/contractAddresses";
 import toast, { Toaster } from "react-hot-toast";
 import { client } from "../lib/sanityClient";
+import FeaturedProjects from '../components/FeaturedProjects/FeaturedProjects';
 
 const loginOptional = false;
 
@@ -41,6 +42,8 @@ const GetStarted: React.FC = () => {
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isSmallerScreen] = useMediaQuery("(max-width: 768px)");
+
+  
 
   useEffect(() => {
     const fetchMetadata = async () => {
@@ -162,8 +165,9 @@ const GetStarted: React.FC = () => {
               }}
             >
               <Text as="b" fontSize="4xl" color="white">
-                Featured Collection🔥
+                Featured Collections🔥
               </Text>
+              <FeaturedProjects/>
 
               <Text as="b" fontSize="6xl" color="white">
                 Search for your favorite collection now!
